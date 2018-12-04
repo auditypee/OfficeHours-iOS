@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct CourseObject: Decodable {
+struct CourseObject {
     var days: String
     var hours: String
     var name: String

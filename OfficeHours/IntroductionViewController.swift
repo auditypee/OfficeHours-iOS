@@ -16,8 +16,13 @@
  
  */
 import UIKit
+import CoreData
 
 class IntroductionViewController: UIViewController {
+    
+    var fetchRequestTas: NSFetchRequest<TA>!
+    var fetchRequestCourses: NSFetchRequest<Course>!
+    var fetchRequestInstructors: NSFetchRequest<Instructor>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,5 +46,9 @@ class IntroductionViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func downloadJsonDataIfNeeded() {
+        
+    }
 
 }

@@ -8,13 +8,13 @@
 
 import UIKit
 
-struct TaObject: Decodable {
+struct TaObject {
     var name: String
     var officeRoom: String
     var officeDays: [TaOfficeHours]
 }
 
-struct TaOfficeHours: Decodable {
+struct TaOfficeHours {
     var officeDay: String
     var officeHours: String
 }

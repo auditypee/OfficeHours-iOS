@@ -20,6 +20,7 @@
 		7382A70E21B620C6005D08C2 /* TaObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7382A70D21B620C6005D08C2 /* TaObject.swift */; };
 		7382A71021B620D7005D08C2 /* InstructorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7382A70F21B620D7005D08C2 /* InstructorObject.swift */; };
 		7382A71221B620ED005D08C2 /* CourseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7382A71121B620ED005D08C2 /* CourseObject.swift */; };
+		7382A71521B62906005D08C2 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7382A71421B62906005D08C2 /* JsonParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		7382A70D21B620C6005D08C2 /* TaObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaObject.swift; sourceTree = "<group>"; };
 		7382A70F21B620D7005D08C2 /* InstructorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorObject.swift; sourceTree = "<group>"; };
 		7382A71121B620ED005D08C2 /* CourseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseObject.swift; sourceTree = "<group>"; };
+		7382A71421B62906005D08C2 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,11 +75,12 @@
 				7382A70A21B61E4A005D08C2 /* Helper */,
 				7382A71321B620F3005D08C2 /* Objects */,
 				7382A70B21B61E94005D08C2 /* IntroductionViewController.swift */,
-				7382A6EF21B61AA9005D08C2 /* Main.storyboard */,
+				7382A71421B62906005D08C2 /* JsonParser.swift */,
 				7382A70821B61CBE005D08C2 /* TaTVController.swift */,
 				7382A70221B61C86005D08C2 /* TACell.swift */,
 				7382A70621B61CAE005D08C2 /* InstructorTVController.swift */,
 				7382A70421B61C98005D08C2 /* InstructorCell.swift */,
+				7382A6EF21B61AA9005D08C2 /* Main.storyboard */,
 				7382A70021B61B2A005D08C2 /* Office_Hours.xcdatamodel */,
 				7382A6FA21B61AAA005D08C2 /* Info.plist */,
 			);
@@ -184,6 +187,7 @@
 				7382A70E21B620C6005D08C2 /* TaObject.swift in Sources */,
 				7382A71021B620D7005D08C2 /* InstructorObject.swift in Sources */,
 				7382A70121B61B2A005D08C2 /* Office_Hours.xcdatamodel in Sources */,
+				7382A71521B62906005D08C2 /* JsonParser.swift in Sources */,
 				7382A6EC21B61AA9005D08C2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
