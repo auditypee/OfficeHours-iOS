@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import CoreData
 
 class InstructorTVController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

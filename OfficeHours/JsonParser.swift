@@ -9,10 +9,14 @@
 import UIKit
 
 class JsonParser: NSObject {
-    var courses = [CourseJson]()
-    var instructors = [InstructorJson]()
-    var tas = [TaJson]()
+    var courses = [CourseObject]()
+    var instructors = [InstructorObject]()
+    var tas = [TaObject]()
     
+    /*
+     will extract the json data from the given data
+     will take the extracted json data and place it in the corresponding array
+     */
     func extractJsonData(data: Data!) {
         let decoder = JSONDecoder()
         
@@ -21,6 +25,25 @@ class JsonParser: NSObject {
             let instructorsData = try decoder.decode(FindInstructor.self, from: data!)
             let tasData = try decoder.decode(FindTa.self, from: data!)
             
+            for course in coursesData.course {
+                let day = course.day!
+                let hours = course.hours!
+                let name = course.name!
+                let number = course.number!
+                let room = course.room!
+                
+                courses.append(CourseObject(days: day, hours: hours, name: name, num: number, room: room))
+            }
+            
+            // TODO: - Implement instructors in object
+            for instructor in instructorsData.instructor {
+                print(instructor.name)
+            }
+            
+            // TODO: - Implement tas into object
+            for ta in tasData.ta {
+                print(ta.name)
+            }
             
         } catch {
             print("Error: Can't convert data to JSON")
@@ -30,30 +53,22 @@ class JsonParser: NSObject {
     
     
     // return the arrays that were created from the json data
-    func getCourses() -> [CourseJson]{
+    func getCourses() -> [CourseObject]{
         return courses
     }
     
-    func getInstructors() -> [InstructorJson] {
+    func getInstructors() -> [InstructorObject] {
         return instructors
     }
     
-    func getTas() -> [TaJson] {
+    func getTas() -> [TaObject] {
         return tas
     }
 
 }
 
 struct FindCourse: Decodable {
-    var courses: [CourseJson]
-}
-
-struct FindInstructor: Decodable {
-    var instructors: [InstructorJson]
-}
-
-struct FindTa: Decodable {
-    var tas: [TaJson]
+    var course: [CourseJson]
 }
 
 struct CourseJson: Decodable {
@@ -62,6 +77,10 @@ struct CourseJson: Decodable {
     var room: String!
     var day: String!
     var hours: String!
+}
+
+struct FindInstructor: Decodable {
+    var instructor: [InstructorJson]
 }
 
 struct InstructorJson: Decodable {
@@ -86,6 +105,10 @@ struct InstOHJson: Decodable {
         case officeHours1 = "office_hours"
         case officeHours2 = "office_hours_extra"
     }
+}
+
+struct FindTa: Decodable {
+    var ta: [TaJson]
 }
 
 struct TaJson: Decodable {
