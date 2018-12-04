@@ -10,9 +10,13 @@
 		7382A6EC21B61AA9005D08C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7382A6EB21B61AA9005D08C2 /* AppDelegate.swift */; };
 		7382A6EE21B61AA9005D08C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7382A6ED21B61AA9005D08C2 /* ViewController.swift */; };
 		7382A6F121B61AA9005D08C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7382A6EF21B61AA9005D08C2 /* Main.storyboard */; };
-		7382A6F421B61AA9005D08C2 /* OfficeHours.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7382A6F221B61AA9005D08C2 /* OfficeHours.xcdatamodeld */; };
 		7382A6F621B61AAA005D08C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7382A6F521B61AAA005D08C2 /* Assets.xcassets */; };
 		7382A6F921B61AAA005D08C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7382A6F721B61AAA005D08C2 /* LaunchScreen.storyboard */; };
+		7382A70121B61B2A005D08C2 /* Office_Hours.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7382A70021B61B2A005D08C2 /* Office_Hours.xcdatamodel */; };
+		7382A70321B61C86005D08C2 /* TACell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7382A70221B61C86005D08C2 /* TACell.swift */; };
+		7382A70521B61C98005D08C2 /* InstructorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7382A70421B61C98005D08C2 /* InstructorCell.swift */; };
+		7382A70721B61CAE005D08C2 /* InstructorTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7382A70621B61CAE005D08C2 /* InstructorTVController.swift */; };
+		7382A70921B61CBE005D08C2 /* TaTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7382A70821B61CBE005D08C2 /* TaTVController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +24,14 @@
 		7382A6EB21B61AA9005D08C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7382A6ED21B61AA9005D08C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7382A6F021B61AA9005D08C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7382A6F321B61AA9005D08C2 /* OfficeHours.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OfficeHours.xcdatamodel; sourceTree = "<group>"; };
 		7382A6F521B61AAA005D08C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7382A6F821B61AAA005D08C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7382A6FA21B61AAA005D08C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7382A70021B61B2A005D08C2 /* Office_Hours.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Office_Hours.xcdatamodel; sourceTree = "<group>"; };
+		7382A70221B61C86005D08C2 /* TACell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TACell.swift; sourceTree = "<group>"; };
+		7382A70421B61C98005D08C2 /* InstructorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorCell.swift; sourceTree = "<group>"; };
+		7382A70621B61CAE005D08C2 /* InstructorTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorTVController.swift; sourceTree = "<group>"; };
+		7382A70821B61CBE005D08C2 /* TaTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaTVController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +70,11 @@
 				7382A6F521B61AAA005D08C2 /* Assets.xcassets */,
 				7382A6F721B61AAA005D08C2 /* LaunchScreen.storyboard */,
 				7382A6FA21B61AAA005D08C2 /* Info.plist */,
-				7382A6F221B61AA9005D08C2 /* OfficeHours.xcdatamodeld */,
+				7382A70021B61B2A005D08C2 /* Office_Hours.xcdatamodel */,
+				7382A70221B61C86005D08C2 /* TACell.swift */,
+				7382A70421B61C98005D08C2 /* InstructorCell.swift */,
+				7382A70621B61CAE005D08C2 /* InstructorTVController.swift */,
+				7382A70821B61CBE005D08C2 /* TaTVController.swift */,
 			);
 			path = OfficeHours;
 			sourceTree = "<group>";
@@ -138,9 +150,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7382A70721B61CAE005D08C2 /* InstructorTVController.swift in Sources */,
+				7382A70321B61C86005D08C2 /* TACell.swift in Sources */,
+				7382A70521B61C98005D08C2 /* InstructorCell.swift in Sources */,
+				7382A70921B61CBE005D08C2 /* TaTVController.swift in Sources */,
+				7382A70121B61B2A005D08C2 /* Office_Hours.xcdatamodel in Sources */,
 				7382A6EE21B61AA9005D08C2 /* ViewController.swift in Sources */,
 				7382A6EC21B61AA9005D08C2 /* AppDelegate.swift in Sources */,
-				7382A6F421B61AA9005D08C2 /* OfficeHours.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,19 +354,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		7382A6F221B61AA9005D08C2 /* OfficeHours.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				7382A6F321B61AA9005D08C2 /* OfficeHours.xcdatamodel */,
-			);
-			currentVersion = 7382A6F321B61AA9005D08C2 /* OfficeHours.xcdatamodel */;
-			path = OfficeHours.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 7382A6E021B61AA9005D08C2 /* Project object */;
 }
