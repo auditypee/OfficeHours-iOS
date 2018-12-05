@@ -113,8 +113,8 @@
                             <outlet property="delegate" destination="JDk-RB-glh" id="IMa-vq-KJw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Instructors" id="B7j-tA-peS">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="BYa-9a-jbF"/>
+                    <navigationItem key="navigationItem" title="Instructors" id="jwy-k8-bYM">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="sPE-i4-AOy"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8r-Qd-1Z2" userLabel="First Responder" sceneMemberID="firstResponder"/>

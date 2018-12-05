@@ -29,7 +29,9 @@ class IntroductionViewController: UIViewController {
     var fetchRequestCourses: NSFetchRequest<Course>!
     var fetchRequestInstructors: NSFetchRequest<Instructor>!
 
-    var managedObjectContext: NSManagedObjectContext? = nil
+    
+    
+    
     
     // where we will get the data from
     let urlData = "https://api.jsonbin.io/b/5c05ffe613c72a101ab2ff22"
@@ -104,7 +106,44 @@ class IntroductionViewController: UIViewController {
             // runs the json parser
             // TODO: - Convert the array into its corresponding Entity. Most difficult part I think, should take an entire day
             DispatchQueue.main.async {
-                self.jsonParser.extractJsonData(data: data)
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let managedContext = appDelegate.persistentContainer.viewContext
+                
+                let courseEntity = NSEntityDescription.entity(forEntityName: "Course", in: managedContext)!
+                
+                
+                let courseObjects = self.jsonParser.extractCourses(data: data)
+                
+                let privateMOC = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+                privateMOC.parent = managedContext
+                
+                
+                privateMOC.perform {
+                    for c in courseObjects {
+                        let course = Course(entity: courseEntity, insertInto: privateMOC)
+                        course.course_name = c.name
+                        course.course_num = c.num
+                        course.course_days = c.days
+                        course.course_room = c.room
+                        course.course_hours = c.hours
+                    }
+                    
+                    do {
+                        try privateMOC.save()
+                        managedContext.performAndWait {
+                            do {
+                                try managedContext.save()
+                                print("Successfully downloaded Course Objects to Entity")
+                            } catch {
+                                fatalError("Failure to save context: \(error)")
+                            }
+                        }
+                    } catch {
+                        fatalError("Failure to save context: \(error)")
+                    }
+                    
+                }
+                
             }
         }
         // resume task
@@ -118,6 +157,23 @@ class IntroductionViewController: UIViewController {
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    
+    
+    func deleteAllCoreData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let delAllReqVar = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "Course"))
+        
+        do {
+            try managedContext.execute(delAllReqVar)
+        } catch {
+            print(error)
+        }
     }
 
 }

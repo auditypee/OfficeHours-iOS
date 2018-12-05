@@ -9,15 +9,13 @@
 import UIKit
 
 class JsonParser: NSObject {
-    var courses = [CourseObject]()
-    var instructors = [InstructorObject]()
-    var tas = [TaObject]()
     
     /*
      will extract the json data from the given data
      will take the extracted json data and place it in the corresponding array
      */
-    func extractJsonData(data: Data!) {
+    func extractCourses(data: Data!) -> [CourseObject] {
+        var courses: [CourseObject] = []
         let decoder = JSONDecoder()
         
         do {
@@ -49,24 +47,28 @@ class JsonParser: NSObject {
             print("Error: Can't convert data to JSON")
             print(error)
         }
-    }
-    
-    
-    // return the arrays that were created from the json data
-    func getCourses() -> [CourseObject]{
+        
         return courses
     }
     
-    func getInstructors() -> [InstructorObject] {
+    func extractInstructors(data: Data!) -> [InstructorObject] {
+        var instructors: [InstructorObject] = []
+        let decoder = JSONDecoder()
+        
         return instructors
     }
     
-    func getTas() -> [TaObject] {
+    func extractTAs(data: Data!) -> [TaObject] {
+        var tas: [TaObject] = []
+        let decoder = JSONDecoder()
+        
+        
         return tas
     }
 
 }
 
+// structures that hold the contents of the JSON data
 struct FindCourse: Decodable {
     var course: [CourseJson]
 }
