@@ -32,7 +32,7 @@ class JsonParser: NSObject {
                 
                 courses.append(CourseObject(days: day, hours: hours, name: name, num: number, room: room))
             }
-            
+            /*
             // TODO: - Implement instructors in object
             for instructor in instructorsData.instructor {
                 print(instructor.name)
@@ -42,7 +42,7 @@ class JsonParser: NSObject {
             for ta in tasData.ta {
                 print(ta.name)
             }
-            
+            */
         } catch {
             print("Error: Can't convert data to JSON")
             print(error)
