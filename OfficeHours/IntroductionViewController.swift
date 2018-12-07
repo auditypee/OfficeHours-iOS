@@ -60,29 +60,6 @@ class IntroductionViewController: UIViewController {
     
     // MARK: - Downloading JSON
     /*
-    func downloadJsonDataIfNeeded() {
-        fetchRequestCourses = Course.fetchRequest()
-        fetchRequestTas = TA.fetchRequest()
-        fetchRequestInstructors = Instructor.fetchRequest()
-        
-        let countCourses = try! self.managedObjectContext?.count(for: fetchRequestCourses)
-        let countTas = try! self.managedObjectContext?.count(for: fetchRequestTas)
-        let countInstructors = try! self.managedObjectContext?.count(for: fetchRequestInstructors)
-        
-        // check if of the results are empty
-        guard countCourses == 0 || countTas == 0 || countInstructors == 0 else {
-            print("None found")
-            return
-        }
-        do {
-            let results = try self.managedObjectContext?.fetch(fetchRequestCourses)
-        } catch {
-            print("Error: Fetching", error)
-        }
-        
-    }
-    */
-    /*
      Downloads JSON data from a URL
     */
     func downloadJSON(urlString: String) {
@@ -107,19 +84,27 @@ class IntroductionViewController: UIViewController {
             // TODO: - Convert the array into its corresponding Entity. Most difficult part I think, should take an entire day
             DispatchQueue.main.async {
                 let courseEntity = NSEntityDescription.entity(forEntityName: "Course", in: self.managedObjectContext)!
+                let instructorEntity = NSEntityDescription.entity(forEntityName: "Instructor", in: self.managedObjectContext)!
                 
+                // extracts the json data into an array of the corresponding objects
                 let courseObjects = self.jsonParser.extractCourses(data: data)
+                let instructorObjects = self.jsonParser.extractInstructors(data: data)
+                let taObjects = self.jsonParser.extractTAs(data: data)
+                
+                // TODO: - Convert instructorObjects into instructorEntities
+                
+                // TODO: - Convert taObjects into taEntities
                 
                 for c in courseObjects {
                     let course = Course(entity: courseEntity, insertInto: self.managedObjectContext)
+                    let instructor = Instructor(entity: instructorEntity, insertInto: self.managedObjectContext)
                     course.course_name = c.name
                     course.course_hours = c.hours
                     course.course_room = c.room
                     course.course_num = c.num
                     course.course_days = c.days
                     
-                    course.ta = nil
-                    course.instructor = nil
+                    course.instructor = instructor
                 }
                 
                 do {

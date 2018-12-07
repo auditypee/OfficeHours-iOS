@@ -20,8 +20,6 @@ class JsonParser: NSObject {
         
         do {
             let coursesData = try decoder.decode(FindCourse.self, from: data!)
-            let instructorsData = try decoder.decode(FindInstructor.self, from: data!)
-            let tasData = try decoder.decode(FindTa.self, from: data!)
             
             for course in coursesData.course {
                 let day = course.day!
@@ -32,20 +30,8 @@ class JsonParser: NSObject {
                 
                 courses.append(CourseObject(days: day, hours: hours, name: name, num: number, room: room))
             }
-            /*
-            // TODO: - Implement instructors in object
-            for instructor in instructorsData.instructor {
-                print(instructor.name)
-            }
-            
-            // TODO: - Implement tas into object
-            for ta in tasData.ta {
-                print(ta.name)
-            }
-            */
         } catch {
-            print("Error: Can't convert data to JSON")
-            print(error)
+            print("Error: Can't extract courses from JSON \(error)")
         }
         
         return courses
@@ -55,13 +41,30 @@ class JsonParser: NSObject {
         var instructors: [InstructorObject] = []
         let decoder = JSONDecoder()
         
+        do {
+            let instructorsData = try decoder.decode(FindInstructor.self, from: data!)
+            
+            
+        } catch {
+            print("Error: Can't extract instructors from JSON \(error)")
+        }
+        
+        
         return instructors
     }
     
+    // TODO: - Implement tas into object
     func extractTAs(data: Data!) -> [TaObject] {
         var tas: [TaObject] = []
         let decoder = JSONDecoder()
         
+        do {
+            let tasData = try decoder.decode(FindTa.self, from: data!)
+            
+            
+        } catch {
+            print("Error: Can't extract tas from JSON \(error)")
+        }
         
         return tas
     }

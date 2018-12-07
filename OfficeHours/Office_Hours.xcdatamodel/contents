@@ -6,37 +6,33 @@
         <attribute name="course_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="course_num" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="course_room" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="instructor" maxCount="1" deletionRule="Nullify" destinationEntity="Instructor" inverseName="courses" inverseEntity="Instructor" syncable="YES"/>
-        <relationship name="ta" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TA" inverseName="course" inverseEntity="TA" syncable="YES"/>
+        <relationship name="instructor" maxCount="1" deletionRule="Nullify" destinationEntity="Instructor" syncable="YES"/>
     </entity>
     <entity name="Inst_Office_Hours" representedClassName="Inst_Office_Hours" syncable="YES">
         <attribute name="office_days" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="office_hours" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="instructor" maxCount="1" deletionRule="Nullify" destinationEntity="Instructor" inverseName="inst_office_hours" inverseEntity="Instructor" syncable="YES"/>
+        <relationship name="instructor" maxCount="1" deletionRule="Nullify" destinationEntity="Instructor" syncable="YES"/>
     </entity>
     <entity name="Instructor" representedClassName="Instructor">
         <attribute name="inst_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="inst_office_room" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Course" inverseName="instructor" inverseEntity="Course" syncable="YES"/>
-        <relationship name="inst_office_hours" toMany="YES" deletionRule="Nullify" destinationEntity="Inst_Office_Hours" inverseName="instructor" inverseEntity="Inst_Office_Hours" syncable="YES"/>
         <userInfo/>
     </entity>
     <entity name="TA" representedClassName="TA" syncable="YES">
         <attribute name="ta_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ta_office_room" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="course" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="ta" inverseEntity="Course" syncable="YES"/>
-        <relationship name="ta_office_hours" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TA_Office_Hours" inverseName="ta" inverseEntity="TA_Office_Hours" syncable="YES"/>
+        <relationship name="course" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Course" syncable="YES"/>
     </entity>
     <entity name="TA_Office_Hours" representedClassName="TA_Office_Hours" syncable="YES">
         <attribute name="office_day" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="office_hours" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="ta" maxCount="1" deletionRule="Nullify" destinationEntity="TA" inverseName="ta_office_hours" inverseEntity="TA" syncable="YES"/>
+        <relationship name="ta" maxCount="1" deletionRule="Nullify" destinationEntity="TA" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Course" positionX="124" positionY="83" width="128" height="148"/>
-        <element name="Inst_Office_Hours" positionX="-261" positionY="36" width="128" height="88"/>
-        <element name="Instructor" positionX="-99" positionY="-63" width="128" height="103"/>
-        <element name="TA" positionX="-101" positionY="297" width="128" height="103"/>
+        <element name="Course" positionX="124" positionY="83" width="128" height="135"/>
+        <element name="Inst_Office_Hours" positionX="-261" positionY="36" width="128" height="90"/>
+        <element name="Instructor" positionX="-99" positionY="-63" width="128" height="75"/>
+        <element name="TA" positionX="-101" positionY="297" width="128" height="90"/>
         <element name="TA_Office_Hours" positionX="-263" positionY="207" width="128" height="88"/>
     </elements>
 </model>

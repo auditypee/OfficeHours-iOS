@@ -2,7 +2,7 @@
 //  Inst_Office_Hours+CoreDataProperties.swift
 //  OfficeHours
 //
-//  Created by Audi on 12/3/18.
+//  Created by Audi on 12/6/18.
 //  Copyright © 2018 Audi. All rights reserved.
 //
 //
