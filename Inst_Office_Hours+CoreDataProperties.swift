@@ -2,7 +2,7 @@
 //  Inst_Office_Hours+CoreDataProperties.swift
 //  OfficeHours
 //
-//  Created by Audi on 12/6/18.
+//  Created by Audi on 12/12/18.
 //  Copyright © 2018 Audi. All rights reserved.
 //
 //
@@ -19,6 +19,6 @@ extension Inst_Office_Hours {
 
     @NSManaged public var office_days: String?
     @NSManaged public var office_hours: String?
-    @NSManaged public var instructor: Instructor?
+    @NSManaged public var has_office_hours: Instructor?
 
 }

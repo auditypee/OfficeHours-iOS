@@ -9,6 +9,8 @@
 import UIKit
 
 struct CourseObject {
+    var courseID: String
+    var instructorID: String
     var days: String
     var hours: String
     var name: String

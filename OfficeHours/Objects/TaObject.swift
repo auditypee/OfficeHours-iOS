@@ -9,12 +9,13 @@
 import UIKit
 
 struct TaObject {
+    var courseID: String
     var name: String
     var officeRoom: String
-    var officeDays: [TaOfficeHours]
+    var officeDays: [TaOHObject]
 }
 
-struct TaOfficeHours {
+struct TaOHObject {
     var officeDay: String
     var officeHours: String
 }

@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // Use this for inspecting the Core Data
+        if let directoryLocation = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).last { print("Documents Directory: \(directoryLocation)Application Support") }
+
         return true
     }
 
