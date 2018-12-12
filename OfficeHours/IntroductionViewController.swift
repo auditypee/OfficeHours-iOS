@@ -9,6 +9,8 @@
  An app that allows the user to get a list of all the instructors and tas for classes.
  It shows the availability of each person and where their office hours are located.
  
+ literally delete the app if you want to get rid of its core data. took me too long to figure out
+ 
  Functions:
  TODO: - VERY IMPORTANT, FULLY ADD ALL OF JSON DATA TO SITE
  TODO: - Checks if current time is in line with someone's office hours
@@ -36,15 +38,11 @@ class IntroductionViewController: UIViewController {
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // where we will get the data from
-    let urlData = "https://api.jsonbin.io/b/5c0b24ae1deea01014bf4db9"
+    let urlData = "https://api.jsonbin.io/b/5c116714279ac6128f589f1c"
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // TODO: - REMOVE THIS BEFORE SENDING IT IN
-        deleteAllCoreData()
-
         downloadJSON(urlString: urlData)
         // Do any additional setup after loading the view.
     }
@@ -161,30 +159,25 @@ class IntroductionViewController: UIViewController {
             
             // fetches the instructor entities
             let fetchRequest: NSFetchRequest<Instructor> = Instructor.fetchRequest()
-            var instHasCourse = Instructor(entity: instructorEntity, insertInto: managedObjectContext)
-            
             // matches the course to its instructor using id matching
             // could be faster, i don't know how to implement that yet
             do {
                 let instructors = try managedObjectContext.fetch(fetchRequest)
                 for i in instructors {
+                    // if one of the instructors has this course, add that relationship
                     if (i.inst_id == course.inst_id) {
-                        instHasCourse = i
+                        course.instructor = i
+                        // adds the course relationship back to the instructor
+                        i.addToCourses(course)
                     }
                 }
             // error checks
             } catch {
                 print("Could not fetch instructorEntity contents for courseObj: \(error)")
             }
-            
-            // relationship to instructor
-            course.instructor = instHasCourse
-            // adds the course as a relationship back to the instructor
-            instHasCourse.addToCourses(course)
-            
             //print("Instructor for \(String(describing: course.course_name)) is \(String(describing: instHasCourse.inst_name))")
         }
-        
+ 
         
         // converts taObjects into taEntities
         for t in taObj {
@@ -207,26 +200,22 @@ class IntroductionViewController: UIViewController {
             
             // get the course entities
             let fetchRequest: NSFetchRequest<Course> = Course.fetchRequest()
-            var taHasCourse = Course(entity: courseEntity, insertInto: managedObjectContext)
-            
-            // matches the ta to its course
+            // matches the ta to their course
             do {
                 let courses = try managedObjectContext.fetch(fetchRequest)
                 
                 for c in courses {
+                    // if one of the courses has this ta, add those relationships
                     if (c.course_id == ta.course_id) {
-                        taHasCourse = c
+                        ta.course = c
+                        c.addToTas(ta)
                     }
                 }
             } catch {
                 print("Could not fetch courseEntity contents for taObj: \(error)")
             }
-            
-            // relationship to course
-            ta.course = taHasCourse
-            // adds the ta back to the course
-            taHasCourse.addToTas(ta)
         }
+        
     }
     
     // shows the alert onscreen
@@ -236,23 +225,6 @@ class IntroductionViewController: UIViewController {
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true, completion: nil)
-    }
-    
-    
-    
-    
-    
-    
-    func deleteAllCoreData() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let delAllReqVar = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "Course"))
-        
-        do {
-            try managedContext.execute(delAllReqVar)
-        } catch {
-            print(error)
-        }
     }
 
 }
