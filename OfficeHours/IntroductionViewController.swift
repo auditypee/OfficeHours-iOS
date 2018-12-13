@@ -12,7 +12,6 @@
  literally delete the app if you want to get rid of its core data. took me waaaaaay too long to figure it out
  
  Functions:
- TODO: - VERY IMPORTANT, FULLY ADD ALL OF JSON DATA TO SITE
  TODO: - Sends notification if requested
  TODO: - Implement saving of a course if have time
  TODO: - Implement filter of courses, tas, or instructor
@@ -31,7 +30,7 @@ class IntroductionViewController: UIViewController {
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // where we will get the data from
-    let urlData = "https://api.jsonbin.io/b/5c116714279ac6128f589f1c"
+    let urlData = "https://api.jsonbin.io/b/5c11f31627794d69b3d795fe"
     
     override func viewDidLoad() {
         super.viewDidLoad()

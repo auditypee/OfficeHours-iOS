@@ -13,6 +13,7 @@
  */
 import UIKit
 class CheckAvailability: NSObject {
+    // returns true if current time is within range
     func checkAvailability(timeString: String, officeDay: String) -> Bool {
         return separateStrings(timeString: timeString) && checkDays(officeDay: officeDay)
     }
@@ -50,6 +51,7 @@ class CheckAvailability: NSObject {
     // converts the given string to a date format and compares it to the current time
     // checks if the current time is within the time range
     func checkHours(hoursStart: String, hoursEnd: String) -> Bool{
+        // converts given string into Date type
         let inFormatter = DateFormatter()
         inFormatter.dateFormat = "hh:mma"
         
@@ -59,6 +61,8 @@ class CheckAvailability: NSObject {
         let startHours = inFormatter.date(from: hoursStart)!
         let endHours = inFormatter.date(from: hoursEnd)!
         
+        // converts current time to string and back again
+        // probably better implementation than this, but it's the best i got for now
         let now = Date()
         inFormatter.dateFormat = "HH:mm"
         let noSH = outFormatter.string(from: now)

@@ -83,7 +83,6 @@ class InstructorTVController: UITableViewController, NSFetchedResultsControllerD
         }
         
         cell.coursesTextView.text = coursesString
-        
     }
     
     // MARK: - FetchedResultsController
@@ -138,6 +137,7 @@ class InstructorTVController: UITableViewController, NSFetchedResultsControllerD
         if (segue.identifier == "instructorDetail") {
             let destVC = segue.destination as! InstructorDetailViewController
             
+            // selectedRow gets its details sent to the InstructorDetailViewController
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let instructor = fetchedResultsController.object(at: indexPath)
                 destVC.navigationItem.title = instructor.inst_name
