@@ -9,11 +9,10 @@
  An app that allows the user to get a list of all the instructors and tas for classes.
  It shows the availability of each person and where their office hours are located.
  
- literally delete the app if you want to get rid of its core data. took me too long to figure out
+ literally delete the app if you want to get rid of its core data. took me waaaaaay too long to figure it out
  
  Functions:
  TODO: - VERY IMPORTANT, FULLY ADD ALL OF JSON DATA TO SITE
- TODO: - Checks if current time is in line with someone's office hours
  TODO: - Sends notification if requested
  TODO: - Implement saving of a course if have time
  TODO: - Implement filter of courses, tas, or instructor
@@ -29,21 +28,14 @@ class IntroductionViewController: UIViewController {
     
     
     let jsonParser = JsonParser()
-    
-    // fetch requests for specific data
-    var fetchRequestTas: NSFetchRequest<TA>!
-    var fetchRequestCourses: NSFetchRequest<Course>!
-    var fetchRequestInstructors: NSFetchRequest<Instructor>!
-
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // where we will get the data from
     let urlData = "https://api.jsonbin.io/b/5c116714279ac6128f589f1c"
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        downloadJSON(urlString: urlData)
+        downloadJSONDataIfNeeded()
         // Do any additional setup after loading the view.
     }
 
@@ -62,6 +54,28 @@ class IntroductionViewController: UIViewController {
  
     
     // MARK: - Downloading JSON
+    
+    func downloadJSONDataIfNeeded() {
+        // only need to check if the course entity is empty.
+        let frC: NSFetchRequest<Course> = Course.fetchRequest()
+        
+        let count = try! managedObjectContext.count(for: frC)
+        
+        guard count == 0 else {
+            print("Data already downloaded")
+            return
+        }
+        
+        do {
+            let results = try managedObjectContext.fetch(frC)
+            results.forEach( { managedObjectContext.delete($0) } )
+            try managedObjectContext.save()
+            
+            downloadJSON(urlString: urlData)
+        } catch {
+            print("Error in fetching results: \(error)")
+        }
+    }
     /*
      Downloads JSON data from a URL
      does error checking

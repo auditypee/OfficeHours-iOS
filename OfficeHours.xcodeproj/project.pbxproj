@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		731DF03421C1CEB600160ED2 /* CheckAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731DF03321C1CEB600160ED2 /* CheckAvailability.swift */; };
 		7344F64521C0DCD700ADB5A0 /* TA_Office_Hours+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344F63B21C0DCD700ADB5A0 /* TA_Office_Hours+CoreDataClass.swift */; };
 		7344F64621C0DCD700ADB5A0 /* TA_Office_Hours+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344F63C21C0DCD700ADB5A0 /* TA_Office_Hours+CoreDataProperties.swift */; };
 		7344F64721C0DCD700ADB5A0 /* Inst_Office_Hours+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344F63D21C0DCD700ADB5A0 /* Inst_Office_Hours+CoreDataClass.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		731DF03321C1CEB600160ED2 /* CheckAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAvailability.swift; sourceTree = "<group>"; };
 		7344F63B21C0DCD700ADB5A0 /* TA_Office_Hours+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TA_Office_Hours+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7344F63C21C0DCD700ADB5A0 /* TA_Office_Hours+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TA_Office_Hours+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7344F63D21C0DCD700ADB5A0 /* Inst_Office_Hours+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Inst_Office_Hours+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				7382A70821B61CBE005D08C2 /* TaTVController.swift */,
 				7382A70221B61C86005D08C2 /* TACell.swift */,
 				7382A70621B61CAE005D08C2 /* InstructorTVController.swift */,
+				731DF03321C1CEB600160ED2 /* CheckAvailability.swift */,
 				7382A70421B61C98005D08C2 /* InstructorCell.swift */,
 				7382A6EF21B61AA9005D08C2 /* Main.storyboard */,
 				7382A70021B61B2A005D08C2 /* Office_Hours.xcdatamodel */,
@@ -237,6 +240,7 @@
 				7382A71521B62906005D08C2 /* JsonParser.swift in Sources */,
 				7344F64E21C0DCD700ADB5A0 /* TA+CoreDataProperties.swift in Sources */,
 				7382A6EC21B61AA9005D08C2 /* AppDelegate.swift in Sources */,
+				731DF03421C1CEB600160ED2 /* CheckAvailability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

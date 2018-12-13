@@ -9,6 +9,10 @@
 import UIKit
 
 class TACell: UITableViewCell {
+    @IBOutlet weak var taNameLabel: UILabel!
+    @IBOutlet weak var officeRoomLabel: UILabel!
+    @IBOutlet weak var availabilityLabel: UILabel!
+    @IBOutlet weak var courseNumLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

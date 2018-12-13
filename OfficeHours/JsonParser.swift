@@ -72,7 +72,8 @@ class JsonParser: NSObject {
                         let officeHours1 = ioh.officeHours1!
                         let officeHours2 = ioh.officeHours2!
                         // combines the two office hours to one string
-                        let officeHours = officeHours1 + " " + officeHours2
+                        // # used to separate the string for later
+                        let officeHours = officeHours1 + "#" + officeHours2
                         // creates the office hours into an object
                         iohObjects.append(InstOHObject(officeDay: officeDay, officeHours: officeHours))
                     }
@@ -112,7 +113,7 @@ class JsonParser: NSObject {
                         let officeHours1 = toh.officeHours1!
                         let officeHours2 = toh.officeHours2!
                         
-                        let officeHours = officeHours1 + " " + officeHours2
+                        let officeHours = officeHours1 + "#" + officeHours2
                         
                         tohObjects.append(TaOHObject(officeDay: officeDay, officeHours: officeHours))
                     }

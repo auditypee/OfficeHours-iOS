@@ -9,16 +9,17 @@
 import UIKit
 import CoreData
 
-class InstructorTVController: UITableViewController {
+class InstructorTVController: UITableViewController, NSFetchedResultsControllerDelegate {
+    var frC: NSFetchRequest<Course>!
+    var frI: NSFetchRequest<Instructor>!
+    
+    let check = CheckAvailability()
+    
+    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,60 +30,105 @@ class InstructorTVController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return fetchedResultsController.sections?.count ?? 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        guard let sections = self.fetchedResultsController.sections else {
+            fatalError("No sections in fetchedResultsController:")
+        }
+        
+        let sectionInfo = sections[section]
+        return sectionInfo.numberOfObjects
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "instCell", for: indexPath) as! InstructorCell
 
+        let instructor = fetchedResultsController.object(at: indexPath)
         // Configure the cell...
-
+        configureCell(cell, withInstructor: instructor)
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    func configureCell(_ cell: InstructorCell, withInstructor instructor: Instructor) {
+        cell.instructorNameLabel.text = instructor.inst_name
+        cell.officeRoomLabel.text = instructor.inst_office_room
+        
+        let officeDays = instructor.inst_office_hours?.allObjects as! [Inst_Office_Hours]
+        
+        // set the availability for each cell
+        var available = false
+        for i in officeDays {
+            // if any of the officeHours return true, then set it to true
+            // otherwise it's always false
+            if (check.checkAvailability(timeString: i.office_hours!, officeDay: i.office_days!)) {
+                available = true
+            }
+        }
+        
+        if (available) {
+            cell.availabilityLabel.text = "Available"
+            cell.availabilityLabel.textColor = UIColor.green
+        } else {
+            cell.availabilityLabel.text = "Not Available"
+            cell.availabilityLabel.textColor = UIColor.red
+        }
+        
+        // set the courses for each cell
+        let courses = instructor.courses?.allObjects as! [Course]
+        var coursesString = ""
+        for c in courses {
+            coursesString += c.course_num! + "\n"
+        }
+        
+        cell.coursesTextView.text = coursesString
+        
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    // MARK: - FetchedResultsController
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    var fetchedResultsController: NSFetchedResultsController<Instructor> {
+        if _fetchedResultsController != nil {
+            return _fetchedResultsController!
+        }
+        
+        let fetchRequest: NSFetchRequest<Instructor> = Instructor.fetchRequest()
+        
+        // Set the batch size to a suitable number.
+        fetchRequest.fetchBatchSize = 20
+        
+        // Edit the sort key as appropriate.
+        let sortDescriptor = NSSortDescriptor(key: "inst_id", ascending: true)
+        
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        // Edit the section name key path and cache name if appropriate.
+        // nil for section name key path means "no sections".
+        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: "Master")
+        aFetchedResultsController.delegate = self
+        _fetchedResultsController = aFetchedResultsController
+        
+        do {
+            try _fetchedResultsController!.performFetch()
+        } catch {
+            let nserror = error as NSError
+                print("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+        
+        return _fetchedResultsController!
     }
-    */
-
+    var _fetchedResultsController: NSFetchedResultsController<Instructor>? = nil
+    
     /*
     // MARK: - Navigation
 

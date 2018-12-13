@@ -9,7 +9,11 @@
 import UIKit
 
 class InstructorCell: UITableViewCell {
-
+    @IBOutlet weak var instructorNameLabel: UILabel!
+    @IBOutlet weak var officeRoomLabel: UILabel!
+    @IBOutlet weak var availabilityLabel: UILabel!
+    @IBOutlet weak var coursesTextView: UITextView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
