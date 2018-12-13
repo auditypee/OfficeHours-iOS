@@ -54,6 +54,7 @@ class TaTVController: UITableViewController, NSFetchedResultsControllerDelegate 
         return cell
     }
     
+    // configures the cell for each instructor info
     func configureCell(_ cell: TACell, withTa ta: TA) {
         cell.taNameLabel.text = ta.ta_name
         cell.officeRoomLabel.text = ta.ta_office_room
@@ -119,14 +120,52 @@ class TaTVController: UITableViewController, NSFetchedResultsControllerDelegate 
     }
     var _fetchedResultsController: NSFetchedResultsController<TA>? = nil
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "taDetail") {
+            let destVC = segue.destination as! TaDetailViewController
+            
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let ta = fetchedResultsController.object(at: indexPath)
+                destVC.navigationItem.title = ta.ta_name
+                
+                let officeHoursInfo = officeHoursInfoToString(ta: ta)
+                destVC.officeHoursString = officeHoursInfo
+                
+                let courseInfo = coursesToString(ta: ta)
+                destVC.courseInfoString = courseInfo
+            }
+        }
     }
-    */
+
+    // gets a ta's office hours and turns it into a string
+    func officeHoursInfoToString(ta: TA) -> String {
+        var officeHoursInfo = ""
+        
+        let officeHours = ta.ta_office_hours?.allObjects as! [TA_Office_Hours]
+        for oh in officeHours {
+            officeHoursInfo += "\(oh.office_day!) \(oh.office_hours!)\n"
+        }
+        
+        return officeHoursInfo
+    }
+    
+    // gets a ta's course and turs it into a string
+    func coursesToString(ta: TA) -> String {
+        var coursesInfo = ""
+        
+        let c = ta.course!
+        
+        coursesInfo += "\(c.course_name!)\n"
+        coursesInfo += "\t\(c.course_num!)\n"
+        coursesInfo += "\t\(c.course_room!)\n"
+        coursesInfo += "\t\(c.course_days!) \(c.course_hours!)\n"
+        
+        return coursesInfo
+    }
 
 }

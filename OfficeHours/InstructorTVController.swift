@@ -10,9 +10,6 @@ import UIKit
 import CoreData
 
 class InstructorTVController: UITableViewController, NSFetchedResultsControllerDelegate {
-    var frC: NSFetchRequest<Course>!
-    var frI: NSFetchRequest<Instructor>!
-    
     let check = CheckAvailability()
     
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -52,6 +49,7 @@ class InstructorTVController: UITableViewController, NSFetchedResultsControllerD
         return cell
     }
     
+    // changes the cell's textviews and labels to its proper details
     func configureCell(_ cell: InstructorCell, withInstructor instructor: Instructor) {
         cell.instructorNameLabel.text = instructor.inst_name
         cell.officeRoomLabel.text = instructor.inst_office_room
@@ -68,6 +66,7 @@ class InstructorTVController: UITableViewController, NSFetchedResultsControllerD
             }
         }
         
+        // changes the availability label to either not available and available
         if (available) {
             cell.availabilityLabel.text = "Available"
             cell.availabilityLabel.textColor = UIColor.green
@@ -129,14 +128,57 @@ class InstructorTVController: UITableViewController, NSFetchedResultsControllerD
     }
     var _fetchedResultsController: NSFetchedResultsController<Instructor>? = nil
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "instructorDetail") {
+            let destVC = segue.destination as! InstructorDetailViewController
+            
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let instructor = fetchedResultsController.object(at: indexPath)
+                destVC.navigationItem.title = instructor.inst_name
+                
+                let officeHoursInfo = officeHourseToString(instructor: instructor)
+                destVC.officeHoursString = officeHoursInfo
+                
+                let coursesInfo = coursesToString(instructor: instructor)
+                destVC.courseInfoString = coursesInfo
+            }
+        }
     }
-    */
+    
+    // gets an instructor's office hours and turns it into a string
+    func officeHourseToString(instructor: Instructor) -> String {
+        var officeHoursInfo = ""
+        
+        let officeHours = instructor.inst_office_hours?.allObjects as! [Inst_Office_Hours]
+        for oh in officeHours {
+            officeHoursInfo += "\(oh.office_days!) \(oh.office_hours!)\n"
+        }
+        
+        return officeHoursInfo
+    }
+    
+    // gets an instructor's courses and turns it into a string
+    func coursesToString(instructor: Instructor) -> String {
+        var coursesInfo = ""
+        
+        let courses = instructor.courses?.allObjects as! [Course]
+        
+        for c in courses {
+            coursesInfo += "\(c.course_name!)\n"
+            coursesInfo += "\t\(c.course_num!)\n"
+            coursesInfo += "\t\(c.course_room!)\n"
+            coursesInfo += "\t\(c.course_days!) \(c.course_hours!)\n"
+        }
+        
+        
+        return coursesInfo
+    }
+ 
 
 }

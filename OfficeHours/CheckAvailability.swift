@@ -6,6 +6,11 @@
 //  Copyright © 2018 Audi. All rights reserved.
 //
 
+/*
+ Compares a given time range and day to current time and day
+ Will return a boolean
+ 
+ */
 import UIKit
 class CheckAvailability: NSObject {
     func checkAvailability(timeString: String, officeDay: String) -> Bool {

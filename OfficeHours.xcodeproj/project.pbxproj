@@ -18,6 +18,8 @@
 		7344F64C21C0DCD700ADB5A0 /* Course+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344F64221C0DCD700ADB5A0 /* Course+CoreDataProperties.swift */; };
 		7344F64D21C0DCD700ADB5A0 /* TA+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344F64321C0DCD700ADB5A0 /* TA+CoreDataClass.swift */; };
 		7344F64E21C0DCD700ADB5A0 /* TA+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344F64421C0DCD700ADB5A0 /* TA+CoreDataProperties.swift */; };
+		73719B9021C20C5500C0D996 /* InstructorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73719B8F21C20C5500C0D996 /* InstructorDetailViewController.swift */; };
+		73719B9221C20C5F00C0D996 /* TaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73719B9121C20C5F00C0D996 /* TaDetailViewController.swift */; };
 		7382A6EC21B61AA9005D08C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7382A6EB21B61AA9005D08C2 /* AppDelegate.swift */; };
 		7382A6F121B61AA9005D08C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7382A6EF21B61AA9005D08C2 /* Main.storyboard */; };
 		7382A6F621B61AAA005D08C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7382A6F521B61AAA005D08C2 /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		7344F64221C0DCD700ADB5A0 /* Course+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Course+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7344F64321C0DCD700ADB5A0 /* TA+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TA+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7344F64421C0DCD700ADB5A0 /* TA+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TA+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		73719B8F21C20C5500C0D996 /* InstructorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorDetailViewController.swift; sourceTree = "<group>"; };
+		73719B9121C20C5F00C0D996 /* TaDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaDetailViewController.swift; sourceTree = "<group>"; };
 		7382A6E821B61AA9005D08C2 /* OfficeHours.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OfficeHours.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7382A6EB21B61AA9005D08C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7382A6F021B61AA9005D08C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,9 +105,11 @@
 				7382A70B21B61E94005D08C2 /* IntroductionViewController.swift */,
 				7382A70821B61CBE005D08C2 /* TaTVController.swift */,
 				7382A70221B61C86005D08C2 /* TACell.swift */,
+				73719B9121C20C5F00C0D996 /* TaDetailViewController.swift */,
 				7382A70621B61CAE005D08C2 /* InstructorTVController.swift */,
-				731DF03321C1CEB600160ED2 /* CheckAvailability.swift */,
 				7382A70421B61C98005D08C2 /* InstructorCell.swift */,
+				73719B8F21C20C5500C0D996 /* InstructorDetailViewController.swift */,
+				731DF03321C1CEB600160ED2 /* CheckAvailability.swift */,
 				7382A6EF21B61AA9005D08C2 /* Main.storyboard */,
 				7382A70021B61B2A005D08C2 /* Office_Hours.xcdatamodel */,
 				7382A6FA21B61AAA005D08C2 /* Info.plist */,
@@ -225,6 +231,7 @@
 				7382A70721B61CAE005D08C2 /* InstructorTVController.swift in Sources */,
 				7344F64A21C0DCD700ADB5A0 /* Instructor+CoreDataProperties.swift in Sources */,
 				7382A70321B61C86005D08C2 /* TACell.swift in Sources */,
+				73719B9221C20C5F00C0D996 /* TaDetailViewController.swift in Sources */,
 				7344F64821C0DCD700ADB5A0 /* Inst_Office_Hours+CoreDataProperties.swift in Sources */,
 				7382A70521B61C98005D08C2 /* InstructorCell.swift in Sources */,
 				7382A70921B61CBE005D08C2 /* TaTVController.swift in Sources */,
@@ -241,6 +248,7 @@
 				7344F64E21C0DCD700ADB5A0 /* TA+CoreDataProperties.swift in Sources */,
 				7382A6EC21B61AA9005D08C2 /* AppDelegate.swift in Sources */,
 				731DF03421C1CEB600160ED2 /* CheckAvailability.swift in Sources */,
+				73719B9021C20C5500C0D996 /* InstructorDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
