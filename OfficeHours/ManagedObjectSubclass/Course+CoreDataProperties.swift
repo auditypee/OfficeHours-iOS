@@ -2,8 +2,8 @@
 //  Course+CoreDataProperties.swift
 //  OfficeHours
 //
-//  Created by Audi on 12/12/18.
-//  Copyright © 2018 Audi. All rights reserved.
+//  Created by Audi on 2/11/19.
+//  Copyright © 2019 Audi. All rights reserved.
 //
 //
 
@@ -19,11 +19,12 @@ extension Course {
 
     @NSManaged public var course_days: String?
     @NSManaged public var course_hours: String?
+    @NSManaged public var course_id: Int16
     @NSManaged public var course_name: String?
     @NSManaged public var course_num: String?
     @NSManaged public var course_room: String?
-    @NSManaged public var course_id: Int16
     @NSManaged public var inst_id: Int16
+    @NSManaged public var favorite: Bool
     @NSManaged public var instructor: Instructor?
     @NSManaged public var tas: NSSet?
 

@@ -13,6 +13,7 @@ class InstructorCell: UITableViewCell {
     @IBOutlet weak var officeRoomLabel: UILabel!
     @IBOutlet weak var availabilityLabel: UILabel!
     @IBOutlet weak var coursesTextView: UITextView!
+    @IBOutlet weak var favImgView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +24,10 @@ class InstructorCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func createCornerTriangle() {
+        
     }
 
 }

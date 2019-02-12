@@ -16,12 +16,6 @@ class TaTVController: UITableViewController, NSFetchedResultsControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +37,34 @@ class TaTVController: UITableViewController, NSFetchedResultsControllerDelegate 
         let sectionInfo = sections[section]
         return sectionInfo.numberOfObjects
     }
+    
+    /*
+     trailing swipe for each cell
+     used to favorite an instructor
+     each content in the trailing swipe is tied to the course number
+     */
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let selTA = fetchedResultsController.object(at: indexPath)
+        let course = selTA.course!
+        
+        let favorite = UIContextualAction(style: .normal, title: "\(course.course_num!)") { (action, view, completionHandler: (Bool) -> Void) in
+            // favorites or unfavorites selected
+            course.favorite = !course.favorite
+            // resets row
+            self.tableView.reloadRows(at: [indexPath], with: .none)
+            completionHandler(true)
+        }
+        if course.favorite {
+            favorite.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+        }
+        
+        // sets the contextualaction into the swipeactions
+        let configuration = UISwipeActionsConfiguration(actions: [favorite])
+        // stops full swipe of a cell
+        configuration.performsFirstActionWithFullSwipe = false
+        
+        return configuration
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taCell", for: indexPath) as! TACell
@@ -61,13 +83,14 @@ class TaTVController: UITableViewController, NSFetchedResultsControllerDelegate 
         
         let officeDays = ta.ta_office_hours?.allObjects as! [TA_Office_Hours]
         
+        // gets the availability of the ta using the availability class
         var available = false
         for t in officeDays {
             if (check.checkAvailability(timeString: t.office_hours!, officeDay: t.office_day!)) {
                 available = true
             }
         }
-        
+        // shows availability: available = green, not available = red
         if (available) {
             cell.availabilityLabel.text = "Available"
             cell.availabilityLabel.textColor = UIColor.green
@@ -76,7 +99,12 @@ class TaTVController: UITableViewController, NSFetchedResultsControllerDelegate 
             cell.availabilityLabel.textColor = UIColor.red
         }
         
-        cell.courseNumLabel.text = ta.course?.course_num
+        // gets the course of the ta
+        // shows if course has been favorited
+        let course = ta.course!
+        cell.favImgView.isHidden = !course.favorite
+        cell.courseNumLabel.text = course.course_num
+        
     }
     
     // MARK: - FetchedResultsController

@@ -10,13 +10,12 @@ import UIKit
 import CoreData
 
 class InstructorTVController: UITableViewController, NSFetchedResultsControllerDelegate {
-    let check = CheckAvailability()
     
+    let check = CheckAvailability()
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,6 +38,38 @@ class InstructorTVController: UITableViewController, NSFetchedResultsControllerD
         return sectionInfo.numberOfObjects
     }
 
+    /*
+     trailing swipe for each cell
+     used to favorite an instructor
+     each content in the trailing swipe is tied to the course number
+    */
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let selInstructor = fetchedResultsController.object(at: indexPath)
+        let courses = selInstructor.courses?.allObjects as! [Course]
+        
+        var favorites = [UIContextualAction]()
+        for c in courses {
+            let fav = UIContextualAction(style: .normal, title: "\(c.course_num!)") { (action, view, completionHandler: (Bool) -> Void) in
+                // favorites or unfavorites selected
+                c.favorite = !c.favorite
+                // resets row
+                self.tableView.reloadRows(at: [indexPath], with: .none)
+                completionHandler(true)
+            }
+            if c.favorite {
+                fav.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+            }
+            // adds the course to the array of contextual action
+            favorites.append(fav)
+        }
+        
+        
+        let configuration = UISwipeActionsConfiguration(actions: favorites)
+        // stops full swipe of a cell
+        configuration.performsFirstActionWithFullSwipe = false
+        
+        return configuration
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "instCell", for: indexPath) as! InstructorCell
@@ -49,7 +80,7 @@ class InstructorTVController: UITableViewController, NSFetchedResultsControllerD
         return cell
     }
     
-    // changes the cell's textviews and labels to its proper details
+    // changes the cell's textviews and labels to its corresponding details
     func configureCell(_ cell: InstructorCell, withInstructor instructor: Instructor) {
         cell.instructorNameLabel.text = instructor.inst_name
         cell.officeRoomLabel.text = instructor.inst_office_room
@@ -78,10 +109,18 @@ class InstructorTVController: UITableViewController, NSFetchedResultsControllerD
         // set the courses for each cell
         let courses = instructor.courses?.allObjects as! [Course]
         var coursesString = ""
+        
+        var fav = false
+        
         for c in courses {
             coursesString += c.course_num! + "\n"
+            // checks if current cell has a favorited course
+            if c.favorite {
+                fav = true
+            }
         }
-        
+        // unhides the image view if there is a favorited course
+        cell.favImgView.isHidden = !fav
         cell.coursesTextView.text = coursesString
     }
     

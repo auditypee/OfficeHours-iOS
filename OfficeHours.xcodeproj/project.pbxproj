@@ -14,8 +14,6 @@
 		7344F64821C0DCD700ADB5A0 /* Inst_Office_Hours+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344F63E21C0DCD700ADB5A0 /* Inst_Office_Hours+CoreDataProperties.swift */; };
 		7344F64921C0DCD700ADB5A0 /* Instructor+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344F63F21C0DCD700ADB5A0 /* Instructor+CoreDataClass.swift */; };
 		7344F64A21C0DCD700ADB5A0 /* Instructor+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344F64021C0DCD700ADB5A0 /* Instructor+CoreDataProperties.swift */; };
-		7344F64B21C0DCD700ADB5A0 /* Course+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344F64121C0DCD700ADB5A0 /* Course+CoreDataClass.swift */; };
-		7344F64C21C0DCD700ADB5A0 /* Course+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344F64221C0DCD700ADB5A0 /* Course+CoreDataProperties.swift */; };
 		7344F64D21C0DCD700ADB5A0 /* TA+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344F64321C0DCD700ADB5A0 /* TA+CoreDataClass.swift */; };
 		7344F64E21C0DCD700ADB5A0 /* TA+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344F64421C0DCD700ADB5A0 /* TA+CoreDataProperties.swift */; };
 		73719B9021C20C5500C0D996 /* InstructorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73719B8F21C20C5500C0D996 /* InstructorDetailViewController.swift */; };
@@ -34,6 +32,8 @@
 		7382A71021B620D7005D08C2 /* InstructorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7382A70F21B620D7005D08C2 /* InstructorObject.swift */; };
 		7382A71221B620ED005D08C2 /* CourseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7382A71121B620ED005D08C2 /* CourseObject.swift */; };
 		7382A71521B62906005D08C2 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7382A71421B62906005D08C2 /* JsonParser.swift */; };
+		73D8642722120CE100C34FE5 /* Course+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D8642522120CE100C34FE5 /* Course+CoreDataClass.swift */; };
+		73D8642822120CE100C34FE5 /* Course+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D8642622120CE100C34FE5 /* Course+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +44,6 @@
 		7344F63E21C0DCD700ADB5A0 /* Inst_Office_Hours+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Inst_Office_Hours+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7344F63F21C0DCD700ADB5A0 /* Instructor+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Instructor+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7344F64021C0DCD700ADB5A0 /* Instructor+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Instructor+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		7344F64121C0DCD700ADB5A0 /* Course+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Course+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7344F64221C0DCD700ADB5A0 /* Course+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Course+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7344F64321C0DCD700ADB5A0 /* TA+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TA+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7344F64421C0DCD700ADB5A0 /* TA+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TA+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		73719B8F21C20C5500C0D996 /* InstructorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorDetailViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +64,8 @@
 		7382A70F21B620D7005D08C2 /* InstructorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorObject.swift; sourceTree = "<group>"; };
 		7382A71121B620ED005D08C2 /* CourseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseObject.swift; sourceTree = "<group>"; };
 		7382A71421B62906005D08C2 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
+		73D8642522120CE100C34FE5 /* Course+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Course+CoreDataClass.swift"; sourceTree = "<group>"; };
+		73D8642622120CE100C34FE5 /* Course+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Course+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,14 +140,14 @@
 		7382A72B21B6305E005D08C2 /* ManagedObjectSubclass */ = {
 			isa = PBXGroup;
 			children = (
+				73D8642522120CE100C34FE5 /* Course+CoreDataClass.swift */,
+				73D8642622120CE100C34FE5 /* Course+CoreDataProperties.swift */,
 				7344F63B21C0DCD700ADB5A0 /* TA_Office_Hours+CoreDataClass.swift */,
 				7344F63C21C0DCD700ADB5A0 /* TA_Office_Hours+CoreDataProperties.swift */,
 				7344F63D21C0DCD700ADB5A0 /* Inst_Office_Hours+CoreDataClass.swift */,
 				7344F63E21C0DCD700ADB5A0 /* Inst_Office_Hours+CoreDataProperties.swift */,
 				7344F63F21C0DCD700ADB5A0 /* Instructor+CoreDataClass.swift */,
 				7344F64021C0DCD700ADB5A0 /* Instructor+CoreDataProperties.swift */,
-				7344F64121C0DCD700ADB5A0 /* Course+CoreDataClass.swift */,
-				7344F64221C0DCD700ADB5A0 /* Course+CoreDataProperties.swift */,
 				7344F64321C0DCD700ADB5A0 /* TA+CoreDataClass.swift */,
 				7344F64421C0DCD700ADB5A0 /* TA+CoreDataProperties.swift */,
 			);
@@ -225,8 +225,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7344F64B21C0DCD700ADB5A0 /* Course+CoreDataClass.swift in Sources */,
-				7344F64C21C0DCD700ADB5A0 /* Course+CoreDataProperties.swift in Sources */,
 				7382A70C21B61E94005D08C2 /* IntroductionViewController.swift in Sources */,
 				7382A70721B61CAE005D08C2 /* InstructorTVController.swift in Sources */,
 				7344F64A21C0DCD700ADB5A0 /* Instructor+CoreDataProperties.swift in Sources */,
@@ -242,8 +240,10 @@
 				7344F64921C0DCD700ADB5A0 /* Instructor+CoreDataClass.swift in Sources */,
 				7344F64D21C0DCD700ADB5A0 /* TA+CoreDataClass.swift in Sources */,
 				7382A71021B620D7005D08C2 /* InstructorObject.swift in Sources */,
+				73D8642822120CE100C34FE5 /* Course+CoreDataProperties.swift in Sources */,
 				7344F64621C0DCD700ADB5A0 /* TA_Office_Hours+CoreDataProperties.swift in Sources */,
 				7382A70121B61B2A005D08C2 /* Office_Hours.xcdatamodel in Sources */,
+				73D8642722120CE100C34FE5 /* Course+CoreDataClass.swift in Sources */,
 				7382A71521B62906005D08C2 /* JsonParser.swift in Sources */,
 				7344F64E21C0DCD700ADB5A0 /* TA+CoreDataProperties.swift in Sources */,
 				7382A6EC21B61AA9005D08C2 /* AppDelegate.swift in Sources */,

@@ -2,8 +2,8 @@
 //  Course+CoreDataClass.swift
 //  OfficeHours
 //
-//  Created by Audi on 12/12/18.
-//  Copyright © 2018 Audi. All rights reserved.
+//  Created by Audi on 2/11/19.
+//  Copyright © 2019 Audi. All rights reserved.
 //
 //
 

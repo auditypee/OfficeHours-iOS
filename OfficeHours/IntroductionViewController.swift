@@ -15,7 +15,7 @@
  TODO: - Sends notification if requested
  TODO: - Implement saving of a course if have time
  TODO: - Implement filter of courses, tas, or instructor
- TODO: - Sort alphabetical, but have instructor's whose office hours are current at top
+ TODO: - Sort alphabetical, but have instructors whose office hours are current at top
  TODO: - Don't forget to add some comments for future reference
  
  */
@@ -30,7 +30,7 @@ class IntroductionViewController: UIViewController {
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // where we will get the data from
-    let urlData = "https://api.jsonbin.io/b/5c11f31627794d69b3d795fe"
+    let urlData = "https://api.jsonbin.io/b/5c11f7aeec62650f24de6ea5"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -178,7 +178,7 @@ class IntroductionViewController: UIViewController {
             course.course_room = c.room
             course.course_num = c.num
             course.course_days = c.days
-            
+            course.favorite = false
             // fetches the instructor entities
             let fetchRequest: NSFetchRequest<Instructor> = Instructor.fetchRequest()
             // matches the course to its instructor using id matching
