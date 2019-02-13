@@ -18,35 +18,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dz9-G9-Vsl">
-                                <rect key="frame" x="59" y="342" width="257" height="30"/>
-                                <state key="normal" title="View Teaching Assistant Office Hours"/>
-                                <connections>
-                                    <segue destination="l6p-53-fSN" kind="show" id="nqq-mR-ZuV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OG3-X1-mWc">
-                                <rect key="frame" x="90" y="260" width="195" height="30"/>
-                                <state key="normal" title="View Instructor Office Hours"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OG3-X1-mWc">
+                                <rect key="frame" x="37" y="227" width="300" height="43"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="ffj-2o-njB"/>
+                                    <constraint firstAttribute="height" constant="43" id="r0T-M8-cmc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <size key="titleShadowOffset" width="0.0" height="-1"/>
+                                <state key="normal" title="View Instructor Office Hours">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="JDk-RB-glh" kind="show" id="Gyf-ve-6ZC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dz9-G9-Vsl">
+                                <rect key="frame" x="37" y="445" width="300" height="43"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="8jL-If-FPq"/>
+                                    <constraint firstAttribute="width" constant="300" id="SDl-QZ-8JV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="View Teaching Assistant Office Hours">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="l6p-53-fSN" kind="show" id="nqq-mR-ZuV"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dz9-G9-Vsl" secondAttribute="trailing" constant="59" id="4tN-xD-JHf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OG3-X1-mWc" secondAttribute="trailing" constant="90" id="Ble-4F-ViI"/>
-                            <constraint firstItem="OG3-X1-mWc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="HPR-1M-Ywh"/>
-                            <constraint firstItem="Dz9-G9-Vsl" firstAttribute="top" secondItem="OG3-X1-mWc" secondAttribute="bottom" constant="52" id="KAV-0H-PSk"/>
-                            <constraint firstItem="Dz9-G9-Vsl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="59" id="c6K-vX-0fe"/>
-                            <constraint firstItem="OG3-X1-mWc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="196" id="ykd-zf-k2S"/>
+                            <constraint firstItem="Dz9-G9-Vsl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4cz-yM-w1y"/>
+                            <constraint firstItem="OG3-X1-mWc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="163" id="BFV-sC-JWO"/>
+                            <constraint firstItem="Dz9-G9-Vsl" firstAttribute="top" secondItem="OG3-X1-mWc" secondAttribute="bottom" constant="175" id="Gvx-5x-C75"/>
+                            <constraint firstItem="OG3-X1-mWc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="NmV-TJ-FZU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dz9-G9-Vsl" secondAttribute="bottom" constant="179" id="ig2-3t-9kH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="S8U-ca-1tl">
                         <barButtonItem key="backBarButtonItem" title="Home" id="FPQ-ld-l7r"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="toInstructorsBtn" destination="OG3-X1-mWc" id="VXu-mO-liV"/>
+                        <outlet property="toTAsBtn" destination="Dz9-G9-Vsl" id="OCh-aJ-Hbo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -92,8 +115,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a3VJ4DCPIl" translatesAutoresizingMaskIntoConstraints="NO" id="W5q-Qe-SvQ">
-                                            <rect key="frame" x="328" y="0.0" width="47" height="46"/>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="a3VJ4DCPIl" translatesAutoresizingMaskIntoConstraints="NO" id="W5q-Qe-SvQ">
+                                            <rect key="frame" x="329" y="0.0" width="47" height="46"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="47" id="Kap-3b-Dy5"/>
                                                 <constraint firstAttribute="height" constant="46" id="sNY-Bf-Mxa"/>
@@ -265,8 +288,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a3VJ4DCPIl" translatesAutoresizingMaskIntoConstraints="NO" id="MGF-K6-mex">
-                                            <rect key="frame" x="329" y="0.0" width="47" height="46"/>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="a3VJ4DCPIl" translatesAutoresizingMaskIntoConstraints="NO" id="MGF-K6-mex">
+                                            <rect key="frame" x="330" y="0.0" width="47" height="46"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="46" id="Dsd-kg-3Kk"/>
                                                 <constraint firstAttribute="width" constant="47" id="gUE-YO-Caa"/>

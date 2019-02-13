@@ -139,19 +139,19 @@ class InstructorTVController: UITableViewController, NSFetchedResultsControllerD
             return _fetchedResultsController!
         }
         
-        let fetchRequest: NSFetchRequest<Instructor> = Instructor.fetchRequest()
+        let instFetchRequest: NSFetchRequest<Instructor> = Instructor.fetchRequest()
         
         // Set the batch size to a suitable number.
-        fetchRequest.fetchBatchSize = 20
-        
+        instFetchRequest.fetchBatchSize = 20
         // Edit the sort key as appropriate.
-        let sortDescriptor = NSSortDescriptor(key: "inst_id", ascending: true)
+        let idSortDescriptor = NSSortDescriptor(key: "inst_id", ascending: true)
         
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        instFetchRequest.sortDescriptors = [idSortDescriptor]
+        
         
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
-        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: "Master")
+        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: instFetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: "Master")
         aFetchedResultsController.delegate = self
         _fetchedResultsController = aFetchedResultsController
         

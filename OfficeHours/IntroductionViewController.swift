@@ -13,17 +13,15 @@
  
  Functions:
  TODO: - Sends notification if requested
- TODO: - Implement saving of a course if have time
- TODO: - Implement filter of courses, tas, or instructor
- TODO: - Sort alphabetical, but have instructors whose office hours are current at top
- TODO: - Don't forget to add some comments for future reference
+ TODO: - Implement filter of courses that have been favorited
  
  */
 import UIKit
 import CoreData
 
 class IntroductionViewController: UIViewController {
-    // TODO: - Implement Select Buttons for TA or Instructor
+    @IBOutlet weak var toInstructorsBtn: UIButton!
+    @IBOutlet weak var toTAsBtn: UIButton!
     
     
     let jsonParser = JsonParser()
@@ -35,7 +33,18 @@ class IntroductionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadJSONDataIfNeeded()
-        // Do any additional setup after loading the view.
+        
+        // initialize the buttons to make it look nice
+        toInstructorsBtn.layer.cornerRadius = 4.0
+        toInstructorsBtn.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        toInstructorsBtn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        toInstructorsBtn.layer.shadowOpacity = 1.0
+        
+        
+        toTAsBtn.layer.cornerRadius = 4.0
+        toTAsBtn.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        toTAsBtn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        toTAsBtn.layer.shadowOpacity = 1.0
     }
 
     override func didReceiveMemoryWarning() {
